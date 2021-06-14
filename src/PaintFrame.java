@@ -18,16 +18,13 @@ public class PaintFrame extends JFrame {
 
 		// 영역 나누기 테스트
 		drawPanel.setPreferredSize(new Dimension(100, 100));
-		penPanel.setPreferredSize(new Dimension(100, 100));
-
 		drawPanel.setBackground(Color.RED);
-		penPanel.setBackground(Color.BLUE);
 
 		add(drawPanel, BorderLayout.CENTER);
 		add(menuPanel, BorderLayout.NORTH);
 		add(toolPanel, BorderLayout.WEST);
 		add(penPanel, BorderLayout.SOUTH);
-		
+
 		setJMenuBar(menuPanel.menuBar);
 	}
 }

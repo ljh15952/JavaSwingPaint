@@ -25,7 +25,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 
 		JToolBar toolBar = new JToolBar("Paint Menu");
 		toolBar.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
-		toolBar.setPreferredSize(new Dimension(100, 400));
+		toolBar.setPreferredSize(new Dimension(100, 300));
 		// 나중에 그림으로 대체
 		penBtn = new JButton("Pen");
 		rectBtn = new JButton("r");
