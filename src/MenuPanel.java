@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -22,6 +24,8 @@ public class MenuPanel extends JPanel implements ActionListener {
 
 	public MenuPanel() {
 		super(true);
+		setPreferredSize(new Dimension(100, 1));
+		setBackground(Color.MAGENTA);
 		menuBar = new JMenuBar();
 
 		fileMenu = new JMenu("File");
