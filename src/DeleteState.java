@@ -1,6 +1,6 @@
 import java.awt.Point;
 
-public class PasteState implements StatePattern {
+public class DeleteState implements StatePattern {
 
 	Figure _clickedFigure = null;
 
@@ -13,7 +13,7 @@ public class PasteState implements StatePattern {
 		}
 		return temp;
 	}
-
+	
 	@Override
 	public void setUp() {
 		_clickedFigure = null;
@@ -25,19 +25,11 @@ public class PasteState implements StatePattern {
 			_clickedFigure = getClickedFigure(p1);
 		if (_clickedFigure == null)
 			return;
-		Figure f = null;
-		try {
-			f = (Figure) _clickedFigure.clone();
-		} catch (CloneNotSupportedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		PaintManager.getInstance().addFigureList(f);
+		PaintManager.getInstance().removeFigure(_clickedFigure);
 	}
 
 	@Override
 	public void end() {
-		// TODO Auto-generated method stub
 
 	}
 

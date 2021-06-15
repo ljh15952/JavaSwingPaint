@@ -22,6 +22,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 	JButton fillRectBtn;
 	JButton fillOvalBtn;
 	JButton pasteBtn;
+	JButton deleteGroupBtn;
 
 	public ToolPanel() {
 		setPreferredSize(new Dimension(120, 100));
@@ -41,6 +42,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 		fillRectBtn = new JButton("R");
 		fillOvalBtn = new JButton("O");
 		pasteBtn = new JButton("p");
+		deleteGroupBtn = new JButton("d");
 
 		penBtn.setPreferredSize(new Dimension(40, 40));
 		rectBtn.setPreferredSize(new Dimension(40, 40));
@@ -51,6 +53,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 		fillRectBtn.setPreferredSize(new Dimension(40, 40));
 		fillOvalBtn.setPreferredSize(new Dimension(40, 40));
 		pasteBtn.setPreferredSize(new Dimension(40, 40));
+		deleteGroupBtn.setPreferredSize(new Dimension(40, 40));
 
 		penBtn.addActionListener(this);
 		rectBtn.addActionListener(this);
@@ -61,6 +64,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 		fillRectBtn.addActionListener(this);
 		fillOvalBtn.addActionListener(this);
 		pasteBtn.addActionListener(this);
+		deleteGroupBtn.addActionListener(this);
 
 		toolBar.add(penBtn);
 		toolBar.add(rectBtn);
@@ -71,6 +75,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 		toolBar.add(fillRectBtn);
 		toolBar.add(fillOvalBtn);
 		toolBar.add(pasteBtn);
+		toolBar.add(deleteGroupBtn);
 
 		add(toolBar, BorderLayout.WEST);
 	}
@@ -100,9 +105,12 @@ public class ToolPanel extends JPanel implements ActionListener {
 		} else if (fillOvalBtn == e.getSource()) {
 			System.out.println("Press fillOvalBtn Button");
 			PaintManager.getInstance().setStatePattern(new DrawFillOvalState());
-		}else if (pasteBtn == e.getSource()) {
+		} else if (pasteBtn == e.getSource()) {
 			System.out.println("Press paste Button");
 			PaintManager.getInstance().setStatePattern(new PasteState());
+		} else if (deleteGroupBtn == e.getSource()) {
+			System.out.println("Press deleteGroupBtn Button");
+			PaintManager.getInstance().setStatePattern(new DeleteState());
 		}
 	}
 }
