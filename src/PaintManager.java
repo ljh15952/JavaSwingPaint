@@ -59,10 +59,10 @@ public class PaintManager {
 		nowState.do_something(p1, p2);
 	}
 	
-	public void endEvnet() {
+	public void endEvnet(Point p1,Point p2) {
 		if (nowState == null)
 			return;
-		nowState.end();
+		nowState.end(p1,p2);
 	}
 	
 	public void setStatePattern(StatePattern s) {

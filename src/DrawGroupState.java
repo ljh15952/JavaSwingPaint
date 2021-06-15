@@ -15,7 +15,7 @@ public class DrawGroupState extends DrawState implements StatePattern {
 		g.resetSize();
 	}
 	@Override
-	public void end() {
+	public void end(Point p1,Point p2) {
 		g.end();
 	}
 }

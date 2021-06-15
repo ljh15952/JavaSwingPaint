@@ -13,7 +13,7 @@ public class DeleteState implements StatePattern {
 		}
 		return temp;
 	}
-	
+
 	@Override
 	public void setUp() {
 		_clickedFigure = null;
@@ -21,16 +21,16 @@ public class DeleteState implements StatePattern {
 
 	@Override
 	public void do_something(Point p1, Point p2) {
+
+	}
+
+	@Override
+	public void end(Point p1, Point p2) {
 		if (_clickedFigure == null)
 			_clickedFigure = getClickedFigure(p1);
 		if (_clickedFigure == null)
 			return;
 		PaintManager.getInstance().removeFigure(_clickedFigure);
-	}
-
-	@Override
-	public void end() {
-
 	}
 
 }

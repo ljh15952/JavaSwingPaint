@@ -29,7 +29,6 @@ public class Group extends Figure {
 		for (int i = 0; i < PaintManager.getInstance().getFigureList().size() - 1; i++) {
 			Figure it = PaintManager.getInstance().getFigureList().get(i);
 			if (contains(it)) {
-				System.out.println("qweqweqwe");
 				_containsList.add(it);
 				// frame의 FigureList에서 삭제
 				PaintManager.getInstance().removeFigure(it);
@@ -76,11 +75,15 @@ public class Group extends Figure {
 		_containsList.add((Figure) object);
 	}
 
+	int count = 0;
+
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		Group g = new Group();
 		g.setPosition(_position);
 		g.setSize(_size);
+		System.out.println(_containsList.size() + " " + count);
+		count++;
 		for (Figure it : _containsList) {
 			g.addFigureList(it.clone());
 		}

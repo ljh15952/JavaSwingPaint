@@ -17,7 +17,7 @@ public class DrawLineState extends DrawState implements StatePattern {
 	}
 
 	@Override
-	public void end() {
+	public void end(Point p1,Point p2) {
 		
 	}
 

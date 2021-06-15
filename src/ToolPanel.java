@@ -23,6 +23,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 	JButton fillOvalBtn;
 	JButton pasteBtn;
 	JButton deleteGroupBtn;
+	JButton releaseGroupBtn;
 
 	public ToolPanel() {
 		setPreferredSize(new Dimension(120, 100));
@@ -43,6 +44,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 		fillOvalBtn = new JButton("O");
 		pasteBtn = new JButton("p");
 		deleteGroupBtn = new JButton("d");
+		releaseGroupBtn = new JButton("rg");
 
 		penBtn.setPreferredSize(new Dimension(40, 40));
 		rectBtn.setPreferredSize(new Dimension(40, 40));
@@ -54,6 +56,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 		fillOvalBtn.setPreferredSize(new Dimension(40, 40));
 		pasteBtn.setPreferredSize(new Dimension(40, 40));
 		deleteGroupBtn.setPreferredSize(new Dimension(40, 40));
+		releaseGroupBtn.setPreferredSize(new Dimension(40, 40));
 
 		penBtn.addActionListener(this);
 		rectBtn.addActionListener(this);
@@ -65,6 +68,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 		fillOvalBtn.addActionListener(this);
 		pasteBtn.addActionListener(this);
 		deleteGroupBtn.addActionListener(this);
+		releaseGroupBtn.addActionListener(this);
 
 		toolBar.add(penBtn);
 		toolBar.add(rectBtn);
@@ -76,6 +80,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 		toolBar.add(fillOvalBtn);
 		toolBar.add(pasteBtn);
 		toolBar.add(deleteGroupBtn);
+		toolBar.add(releaseGroupBtn);
 
 		add(toolBar, BorderLayout.WEST);
 	}
@@ -111,6 +116,9 @@ public class ToolPanel extends JPanel implements ActionListener {
 		} else if (deleteGroupBtn == e.getSource()) {
 			System.out.println("Press deleteGroupBtn Button");
 			PaintManager.getInstance().setStatePattern(new DeleteState());
+		} else if (releaseGroupBtn == e.getSource()) {
+			System.out.println("Press releaseGroupBtn Button");
+			PaintManager.getInstance().setStatePattern(new ReleaseGroupState());
 		}
 	}
 }

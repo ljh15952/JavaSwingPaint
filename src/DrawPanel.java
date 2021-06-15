@@ -58,7 +58,7 @@ public class DrawPanel extends JPanel {
 			// TODO Auto-generated method stub
 			endPos = e.getPoint();
 			PaintManager.getInstance().do_something(firstPos, endPos);
-			PaintManager.getInstance().endEvnet();
+			PaintManager.getInstance().endEvnet(firstPos,endPos);
 			figureCount.setText(Integer.toString(PaintManager.getInstance().getFigureList().size()));
 			repaint();
 		}
