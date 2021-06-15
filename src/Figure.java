@@ -10,13 +10,12 @@ public class Figure {
 
 	private Color color;
 	private int size;
-	
+
 	public Figure() {
 		setPenColor(PaintManager.getInstance().getPenColor());
 		setPenSize(PaintManager.getInstance().getPenSize());
-		System.out.println("qwe");
 	}
-	
+
 	public void setPosition(Point p) {
 		_position = p;
 	}
@@ -45,16 +44,19 @@ public class Figure {
 		g2D.setColor(color);
 	}
 
-	public Boolean contains(Point p) {
-		if (_position.x <= p.x && _position.y <= p.y && _size.x + _position.x >= p.x && _size.y + _position.y >= p.y) {
+	public Boolean contains(Figure p) {
+		if (_position.x <= p._position.x && _position.y <= p._position.y
+				&& _size.x + _position.x >= p._position.x + p._size.x
+				&& _size.y + _position.y >= p._position.y + p._size.y) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	public void setPenColor(Color c) {
 		color = c;
 	}
+
 	public void setPenSize(int s) {
 		size = s;
 	}

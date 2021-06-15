@@ -62,4 +62,9 @@ public class PaintManager {
 	public void setStatePattern(StatePattern s) {
 		nowState = s;
 	}
+	
+	public void removeFigure(Figure f) {
+		figureList.remove(f);
+		//repaint();
+	}
 }

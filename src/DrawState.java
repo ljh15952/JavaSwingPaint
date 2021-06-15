@@ -13,6 +13,5 @@ public class DrawState {
 	public void setFigure(Figure f, Point p1, Point p2) {
 		f.setPosition(getPosition(p1, p2));
 		f.setSize(getSize(p1, p2));
-		PaintManager.getInstance().addFigureList(f);
 	}
 }

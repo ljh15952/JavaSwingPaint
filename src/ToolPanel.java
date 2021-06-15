@@ -17,6 +17,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 	JButton rectBtn;
 	JButton ovalBtn;
 	JButton lineBtn;
+	JButton groupBtn;
 
 	public ToolPanel() {
 		setPreferredSize(new Dimension(120, 100));
@@ -31,21 +32,25 @@ public class ToolPanel extends JPanel implements ActionListener {
 		rectBtn = new JButton("r");
 		ovalBtn = new JButton("o");
 		lineBtn = new JButton("l");
+		groupBtn = new JButton("g");
 
 		penBtn.setPreferredSize(new Dimension(40, 40));
 		rectBtn.setPreferredSize(new Dimension(40, 40));
 		ovalBtn.setPreferredSize(new Dimension(40, 40));
 		lineBtn.setPreferredSize(new Dimension(40, 40));
+		groupBtn.setPreferredSize(new Dimension(40, 40));
 
 		penBtn.addActionListener(this);
 		rectBtn.addActionListener(this);
 		ovalBtn.addActionListener(this);
 		lineBtn.addActionListener(this);
+		groupBtn.addActionListener(this);
 
 		toolBar.add(penBtn);
 		toolBar.add(rectBtn);
 		toolBar.add(ovalBtn);
 		toolBar.add(lineBtn);
+		toolBar.add(groupBtn);
 
 		add(toolBar, BorderLayout.WEST);
 	}
@@ -63,6 +68,9 @@ public class ToolPanel extends JPanel implements ActionListener {
 		} else if (lineBtn == e.getSource()) {
 			System.out.println("Press Line Button");
 			PaintManager.getInstance().setStatePattern(new DrawLineState());
+		} else if (groupBtn == e.getSource()) {
+			System.out.println("Press Group Button");
+			PaintManager.getInstance().setStatePattern(new DrawGroupState());
 		}
 	}
 }

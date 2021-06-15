@@ -28,14 +28,11 @@ public class DrawPanel extends JPanel {
 
 	public void paint(Graphics g) {
 		super.paint(g);
-		
-
 		for (Figure it : PaintManager.getInstance().getFigureList()) {
+			System.out.println(PaintManager.getInstance().getFigureList().size());
 			it.Draw(g);
 		}
 	}
-
-	Rect r;
 
 	private class ClickListener extends MouseAdapter {
 
@@ -53,7 +50,9 @@ public class DrawPanel extends JPanel {
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-
+			endPos = e.getPoint();
+			PaintManager.getInstance().do_something(firstPos,endPos);
+			repaint();
 		}
 
 		@Override
