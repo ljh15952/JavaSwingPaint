@@ -36,7 +36,6 @@ public class DrawPanel extends JPanel {
 	public void paint(Graphics g) {
 		super.paint(g);
 		for (Figure it : PaintManager.getInstance().getFigureList()) {
-			System.out.println(PaintManager.getInstance().getFigureList().size());
 			it.Draw(g);
 		}
 	}

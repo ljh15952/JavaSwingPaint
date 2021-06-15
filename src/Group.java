@@ -25,8 +25,8 @@ public class Group extends Figure {
 
 	public void checkContainsFigure() {
 		// 자기 사각형 안에 들어간 도형들을 자기 멤버(리스트)로 집어넣음
-		//-1 로 자기자신 제외
-		for (int i = 0; i < PaintManager.getInstance().getFigureList().size()-1; i++) {
+		// -1 로 자기자신 제외
+		for (int i = 0; i < PaintManager.getInstance().getFigureList().size() - 1; i++) {
 			Figure it = PaintManager.getInstance().getFigureList().get(i);
 			if (contains(it)) {
 				System.out.println("qweqweqwe");
@@ -37,7 +37,7 @@ public class Group extends Figure {
 				i = -1;
 			}
 		}
-	
+
 	}
 
 	public void resetSize() {
@@ -63,10 +63,28 @@ public class Group extends Figure {
 	}
 
 	public void end() {
-		if(_containsList.size() <= 0) {
-			System.out.println("qweqweqweqwe");
+		if (_containsList.size() <= 0) {
 			PaintManager.getInstance().removeFigure(this);
 		}
+	}
+
+	public ArrayList<Figure> getFigureList() {
+		return _containsList;
+	}
+
+	public void addFigureList(Object object) {
+		_containsList.add((Figure) object);
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		Group g = new Group();
+		g.setPosition(_position);
+		g.setSize(_size);
+		for (Figure it : _containsList) {
+			g.addFigureList(it.clone());
+		}
+		return g;
 	}
 
 }

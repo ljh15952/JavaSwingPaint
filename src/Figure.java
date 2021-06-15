@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-public class Figure {
+public class Figure implements Cloneable {
 	protected Point _position;
 	protected Point _size;
 
@@ -66,5 +66,10 @@ public class Figure {
 
 	public void setPenSize(int s) {
 		size = s;
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 }
