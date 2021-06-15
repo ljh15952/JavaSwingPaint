@@ -12,5 +12,9 @@ public class DrawRectState extends DrawState implements StatePattern {
 	public void do_something(Point p1, Point p2) {
 		setFigure(r,p1,p2);
 	}
+	@Override
+	public void end() {
+		
+	}
 
 }

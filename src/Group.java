@@ -37,6 +37,7 @@ public class Group extends Figure {
 				i = -1;
 			}
 		}
+	
 	}
 
 	public void resetSize() {
@@ -58,6 +59,13 @@ public class Group extends Figure {
 		super.addPosition(p);
 		for (Figure it : _containsList) {
 			it.addPosition(p);
+		}
+	}
+
+	public void end() {
+		if(_containsList.size() <= 0) {
+			System.out.println("qweqweqweqwe");
+			PaintManager.getInstance().removeFigure(this);
 		}
 	}
 

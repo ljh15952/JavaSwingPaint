@@ -3,6 +3,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Label;
+import java.awt.Paint;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,6 +18,7 @@ public class DrawPanel extends JPanel {
 
 	private Point firstPos;
 	private Point endPos;
+	private Label figureCount;
 
 	public DrawPanel() {
 		setBackground(Color.WHITE);
@@ -24,6 +27,10 @@ public class DrawPanel extends JPanel {
 		DragListener dragListener = new DragListener();
 		addMouseListener(clickListener);
 		addMouseMotionListener(dragListener);
+
+		figureCount = new Label("0");
+		figureCount.setPreferredSize(new Dimension(1280, 10));
+		add(figureCount);
 	}
 
 	public void paint(Graphics g) {
@@ -51,7 +58,9 @@ public class DrawPanel extends JPanel {
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
 			endPos = e.getPoint();
-			PaintManager.getInstance().do_something(firstPos,endPos);
+			PaintManager.getInstance().do_something(firstPos, endPos);
+			PaintManager.getInstance().endEvnet();
+			figureCount.setText(Integer.toString(PaintManager.getInstance().getFigureList().size()));
 			repaint();
 		}
 
@@ -71,7 +80,7 @@ public class DrawPanel extends JPanel {
 	private class DragListener extends MouseMotionAdapter {
 		public void mouseDragged(MouseEvent e) {
 			endPos = e.getPoint();
-			PaintManager.getInstance().do_something(firstPos,endPos);
+			PaintManager.getInstance().do_something(firstPos, endPos);
 			repaint();
 		}
 	}

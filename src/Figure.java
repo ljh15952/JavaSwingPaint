@@ -53,6 +53,13 @@ public class Figure {
 		return false;
 	}
 
+	public Boolean contains(Point p) {
+		if (_position.x <= p.x && _position.y <= p.y && _size.x + _position.x >= p.x && _size.y + _position.y >= p.y) {
+			return true;
+		}
+		return false;
+	}
+
 	public void setPenColor(Color c) {
 		color = c;
 	}

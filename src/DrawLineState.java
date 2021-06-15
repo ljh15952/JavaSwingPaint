@@ -16,4 +16,9 @@ public class DrawLineState extends DrawState implements StatePattern {
 		PaintManager.getInstance().addFigureList(l);
 	}
 
+	@Override
+	public void end() {
+		
+	}
+
 }
