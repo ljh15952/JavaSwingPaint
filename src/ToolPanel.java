@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
@@ -27,24 +28,36 @@ public class ToolPanel extends JPanel implements ActionListener {
 
 	public ToolPanel() {
 		setPreferredSize(new Dimension(120, 100));
-		setBackground(Color.GREEN);
+		setBackground(Color.LIGHT_GRAY);
 		// setLayout(new FlowLayout(FlowLayout.LEFT,0,0));
 
 		JToolBar toolBar = new JToolBar("Paint Menu");
 		toolBar.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 		toolBar.setPreferredSize(new Dimension(100, 300));
 		// 나중에 그림으로 대체
-		penBtn = new JButton("Pen");
-		rectBtn = new JButton("r");
-		ovalBtn = new JButton("o");
-		lineBtn = new JButton("l");
-		groupBtn = new JButton("g");
-		moveBtn = new JButton("m");
-		fillRectBtn = new JButton("R");
-		fillOvalBtn = new JButton("O");
-		pasteBtn = new JButton("p");
-		deleteGroupBtn = new JButton("d");
-		releaseGroupBtn = new JButton("rg");
+		ImageIcon penIcon = new ImageIcon("sprite/penIcon.png");
+		ImageIcon rectIcon = new ImageIcon("sprite/rectIcon.png");
+		ImageIcon ovalIcon = new ImageIcon("sprite/ovalIcon.png");
+		ImageIcon lineIcon = new ImageIcon("sprite/lineIcon.png");
+		ImageIcon groupIcon = new ImageIcon("sprite/groupIcon.png");
+		ImageIcon moveIcon = new ImageIcon("sprite/moveIcon.png");
+		ImageIcon fillRectIcon = new ImageIcon("sprite/fillRectIcon.png");
+		ImageIcon fillOvalIcon = new ImageIcon("sprite/fillOvalIcon.png");
+		ImageIcon copyIcon = new ImageIcon("sprite/copyIcon.png");
+		ImageIcon deleteIcon = new ImageIcon("sprite/deleteIcon.png");
+		ImageIcon releaseGroupIcon = new ImageIcon("sprite/releaseGroupIcon.png");
+
+		penBtn = new JButton(penIcon);
+		rectBtn = new JButton(rectIcon);
+		ovalBtn = new JButton(ovalIcon);
+		lineBtn = new JButton(lineIcon);
+		groupBtn = new JButton(groupIcon);
+		moveBtn = new JButton(moveIcon);
+		fillRectBtn = new JButton(fillRectIcon);
+		fillOvalBtn = new JButton(fillOvalIcon);
+		pasteBtn = new JButton(copyIcon);
+		deleteGroupBtn = new JButton(deleteIcon);
+		releaseGroupBtn = new JButton(releaseGroupIcon);
 
 		penBtn.setPreferredSize(new Dimension(40, 40));
 		rectBtn.setPreferredSize(new Dimension(40, 40));

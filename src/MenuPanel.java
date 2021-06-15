@@ -25,7 +25,7 @@ public class MenuPanel extends JPanel implements ActionListener {
 	public MenuPanel() {
 		super(true);
 		setPreferredSize(new Dimension(100, 1));
-		setBackground(Color.MAGENTA);
+		setBackground(Color.LIGHT_GRAY);
 		menuBar = new JMenuBar();
 
 		fileMenu = new JMenu("File");
