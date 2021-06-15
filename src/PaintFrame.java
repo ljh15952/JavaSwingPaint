@@ -2,12 +2,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 public class PaintFrame extends JFrame {
 
 	public PaintFrame() {
-		setSize(600, 600);
+		setSize(900, 900);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
 
@@ -15,12 +17,12 @@ public class PaintFrame extends JFrame {
 		MenuPanel menuPanel = new MenuPanel();
 		ToolPanel toolPanel = new ToolPanel();
 		PenOptionPanel penPanel = new PenOptionPanel();
-
-		// 영역 나누기 테스트
-		drawPanel.setPreferredSize(new Dimension(100, 100));
-		drawPanel.setBackground(Color.RED);
-
-		add(drawPanel, BorderLayout.CENTER);
+		
+		
+		JScrollPane sc = new JScrollPane(drawPanel);
+		
+	//	add(drawPanel, BorderLayout.CENTER);
+		add(sc,BorderLayout.CENTER);
 		add(menuPanel, BorderLayout.NORTH);
 		add(toolPanel, BorderLayout.WEST);
 		add(penPanel, BorderLayout.SOUTH);

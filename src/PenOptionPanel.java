@@ -37,7 +37,7 @@ public class PenOptionPanel extends JPanel implements ChangeListener {
 		penSizeSlider.setPaintTicks(true);
 		penSizeSlider.setMajorTickSpacing(1);
 		penSizeSlider.setForeground(Color.BLACK);
-
+		penSizeSlider.addChangeListener(this);
 		add(penSizeSlider);
 
 	}
