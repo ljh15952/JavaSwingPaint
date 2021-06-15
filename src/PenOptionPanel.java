@@ -29,8 +29,8 @@ public class PenOptionPanel extends JPanel implements ChangeListener {
 		}
 
 		colorSlider[0].setBackground(Color.RED);
-		colorSlider[1].setBackground(Color.BLUE);
-		colorSlider[2].setBackground(Color.GREEN);
+		colorSlider[1].setBackground(Color.GREEN);
+		colorSlider[2].setBackground(Color.BLUE);
 
 		penSizeSlider = new JSlider(1, 10, 1);
 		penSizeSlider.setPreferredSize(new Dimension(500, 30));

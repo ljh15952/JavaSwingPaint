@@ -82,7 +82,6 @@ public class Group extends Figure {
 		Group g = new Group();
 		g.setPosition(_position);
 		g.setSize(_size);
-		System.out.println(_containsList.size() + " " + count);
 		count++;
 		for (Figure it : _containsList) {
 			g.addFigureList(it.clone());

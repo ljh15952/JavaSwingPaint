@@ -102,6 +102,7 @@ public class ToolPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (penBtn == e.getSource()) {
 			System.out.println("Press pen Button");
+			PaintManager.getInstance().setStatePattern(new DrawPenState());
 		} else if (rectBtn == e.getSource()) {
 			System.out.println("Press rect Button");
 			PaintManager.getInstance().setStatePattern(new DrawRectState());
