@@ -19,6 +19,8 @@ public class ToolPanel extends JPanel implements ActionListener {
 	JButton lineBtn;
 	JButton groupBtn;
 	JButton moveBtn;
+	JButton fillRectBtn;
+	JButton fillOvalBtn;
 
 	public ToolPanel() {
 		setPreferredSize(new Dimension(120, 100));
@@ -35,6 +37,8 @@ public class ToolPanel extends JPanel implements ActionListener {
 		lineBtn = new JButton("l");
 		groupBtn = new JButton("g");
 		moveBtn = new JButton("m");
+		fillRectBtn = new JButton("R");
+		fillOvalBtn = new JButton("O");
 
 		penBtn.setPreferredSize(new Dimension(40, 40));
 		rectBtn.setPreferredSize(new Dimension(40, 40));
@@ -42,6 +46,8 @@ public class ToolPanel extends JPanel implements ActionListener {
 		lineBtn.setPreferredSize(new Dimension(40, 40));
 		groupBtn.setPreferredSize(new Dimension(40, 40));
 		moveBtn.setPreferredSize(new Dimension(40, 40));
+		fillRectBtn.setPreferredSize(new Dimension(40, 40));
+		fillOvalBtn.setPreferredSize(new Dimension(40, 40));
 
 		penBtn.addActionListener(this);
 		rectBtn.addActionListener(this);
@@ -49,6 +55,8 @@ public class ToolPanel extends JPanel implements ActionListener {
 		lineBtn.addActionListener(this);
 		groupBtn.addActionListener(this);
 		moveBtn.addActionListener(this);
+		fillRectBtn.addActionListener(this);
+		fillOvalBtn.addActionListener(this);
 
 		toolBar.add(penBtn);
 		toolBar.add(rectBtn);
@@ -56,6 +64,8 @@ public class ToolPanel extends JPanel implements ActionListener {
 		toolBar.add(lineBtn);
 		toolBar.add(groupBtn);
 		toolBar.add(moveBtn);
+		toolBar.add(fillRectBtn);
+		toolBar.add(fillOvalBtn);
 
 		add(toolBar, BorderLayout.WEST);
 	}
@@ -79,6 +89,12 @@ public class ToolPanel extends JPanel implements ActionListener {
 		} else if (moveBtn == e.getSource()) {
 			System.out.println("Press Move Button");
 			PaintManager.getInstance().setStatePattern(new MoveState());
+		} else if (fillRectBtn == e.getSource()) {
+			System.out.println("Press FillRect Button");
+			PaintManager.getInstance().setStatePattern(new DrawFillRectState());
+		} else if (fillOvalBtn == e.getSource()) {
+			System.out.println("Press fillOvalBtn Button");
+			PaintManager.getInstance().setStatePattern(new DrawFillOvalState());
 		}
 	}
 }
