@@ -17,12 +17,11 @@ public class PaintFrame extends JFrame {
 		MenuPanel menuPanel = new MenuPanel();
 		ToolPanel toolPanel = new ToolPanel();
 		PenOptionPanel penPanel = new PenOptionPanel();
-		
-		
+
 		JScrollPane sc = new JScrollPane(drawPanel);
-		
-	//	add(drawPanel, BorderLayout.CENTER);
-		add(sc,BorderLayout.CENTER);
+
+		// add(drawPanel, BorderLayout.CENTER);
+		add(sc, BorderLayout.CENTER);
 		add(menuPanel, BorderLayout.NORTH);
 		add(toolPanel, BorderLayout.WEST);
 		add(penPanel, BorderLayout.SOUTH);

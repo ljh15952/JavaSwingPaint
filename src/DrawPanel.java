@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -12,6 +13,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 public class DrawPanel extends JPanel {
+
+	private Point firstPos;
+	private Point endPos;
 
 	public DrawPanel() {
 		setBackground(Color.WHITE);
@@ -24,17 +28,21 @@ public class DrawPanel extends JPanel {
 
 	public void paint(Graphics g) {
 		super.paint(g);
-		Graphics2D g2D = (Graphics2D) g;
-		g2D.setStroke(new BasicStroke(PaintManager.getInstance().getPenSize()));
-		g2D.setColor(PaintManager.getInstance().getPenColor());
-		g.drawLine(0, 0, 800, 800);
+		
+
+		for (Figure it : PaintManager.getInstance().getFigureList()) {
+			it.Draw(g);
+		}
 	}
+
+	Rect r;
 
 	private class ClickListener extends MouseAdapter {
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			System.out.println("qwe");
+			PaintManager.getInstance().setUp();
+			firstPos = e.getPoint();
 		}
 
 		@Override
@@ -63,6 +71,8 @@ public class DrawPanel extends JPanel {
 
 	private class DragListener extends MouseMotionAdapter {
 		public void mouseDragged(MouseEvent e) {
+			endPos = e.getPoint();
+			PaintManager.getInstance().do_something(firstPos,endPos);
 			repaint();
 		}
 	}
