@@ -53,8 +53,10 @@ public class MenuPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (loadItem == e.getSource()) {
 			System.out.println("LOAD FILE");
+			PaintManager.getInstance().Load();
 		} else if (saveItem == e.getSource()) {
 			System.out.println("SAVE FILE");
+			PaintManager.getInstance().Save();
 		} else if (exitItem == e.getSource()) {
 			System.exit(0);
 		}

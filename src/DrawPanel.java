@@ -21,6 +21,7 @@ public class DrawPanel extends JPanel {
 	private Label figureCount;
 
 	public DrawPanel() {
+		PaintManager.getInstance().setDrawPanel(this);
 		setBackground(Color.WHITE);
 		setPreferredSize(new Dimension(1280, 1280));
 		ClickListener clickListener = new ClickListener();
@@ -39,7 +40,9 @@ public class DrawPanel extends JPanel {
 			it.Draw(g);
 		}
 	}
-
+	public void SetFigureCount() {
+		figureCount.setText(Integer.toString(PaintManager.getInstance().getFigureList().size()));
+	}
 	private class ClickListener extends MouseAdapter {
 
 		@Override
@@ -58,8 +61,8 @@ public class DrawPanel extends JPanel {
 			// TODO Auto-generated method stub
 			endPos = e.getPoint();
 			PaintManager.getInstance().do_something(firstPos, endPos);
-			PaintManager.getInstance().endEvnet(firstPos,endPos);
-			figureCount.setText(Integer.toString(PaintManager.getInstance().getFigureList().size()));
+			PaintManager.getInstance().endEvnet(firstPos, endPos);
+			SetFigureCount();
 			repaint();
 		}
 
